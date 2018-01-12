@@ -60,7 +60,7 @@ def startAria():
     if os_type == 'Linux' or os_type == 'FreeBSD' or os_type == 'OpenBSD':
         os.system("aria2c --version 1> /dev/null")
         os.system("aria2c --no-conf  --enable-rpc --rpc-listen-port '" +
-                  str(port) + "' --rpc-max-request-size=2M --rpc-listen-all --quiet=true &")
+                  str(port) + "' --rpc-max-request-size=2M --rpc-listen-all --rpc-allow-origin-all --quiet=true &")
 
     # in macintosh
     elif os_type == 'Darwin':
@@ -74,7 +74,7 @@ def startAria():
 
         os.system("'" + aria2d + "' --version 1> /dev/null")
         os.system("'" + aria2d + "' --no-conf  --enable-rpc --rpc-listen-port '" +
-                  str(port) + "' --rpc-max-request-size=2M --rpc-listen-all --quiet=true &")
+                  str(port) + "' --rpc-max-request-size=2M --rpc-listen-all --rpc-allow-origin-all --quiet=true &")
 
     # in Windows
     elif os_type == 'Windows':
@@ -91,7 +91,7 @@ def startAria():
 
         # aria2 command in windows
         subprocess.Popen([aria2d, '--no-conf', '--enable-rpc', '--rpc-listen-port=' + str(port),
-                          '--rpc-max-request-size=2M', '--rpc-listen-all', '--quiet=true'], shell=False, creationflags=NO_WINDOW)
+                          '--rpc-max-request-size=2M', '--rpc-listen-all', '--rpc-allow-origin-all', '--quiet=true'], shell=False, creationflags=NO_WINDOW)
 
     time.sleep(2)
 
